@@ -1,7 +1,7 @@
 package com.hbvk;
 
-public class App {
-    static void main() {
-        System.out.println("Hello World");
+class App {
+    void main() {
+        IO.println("Hello World");
     }
 }

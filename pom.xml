@@ -68,5 +68,23 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <packageName>com.hbvk</packageName>
+                            <mainClass>com.hbvk.App</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Created-By>Henk</Created-By>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
