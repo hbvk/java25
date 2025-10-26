@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/hbvk/java-test/_apis/build/status%2Fhbvk.java25?branchName=main)](https://dev.azure.com/hbvk/java-test/_build/latest?definitionId=44&branchName=main)
+
 | Release | EOL     | Class File Version |
 |---------|---------|--------------------|
 | 2025-09 | 2030-09 | 69.0               |
