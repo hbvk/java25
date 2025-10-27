@@ -19,6 +19,26 @@
 | [512](https://openjdk.java.net/jeps/512) | Compact Source Files and Instance Main Methods | 25         | [example](src/main/java/com/hbvk/App.java)                                                                                                                   |
 | [513](https://openjdk.java.net/jeps/513) | Flexible Constructor Bodies                    | 25         | [example](src/main/java/com/hbvk/jep513/FlexibleConstructorBodies.java), [test case](src/test/java/com/hbvk/jep513/Jep513FlexibleConstructorBodiesTest.java) |
 
+## Stream Gatherers
+
+Stream gatherers ([JEP485](https://openjdk.java.net/jeps/485)) were first introduced as a preview in Java 22, and
+finalized in Java 24. Stream gatherers are an extension point for intermediate operations on streams, allowing
+constructs like:
+
+```java
+Stream.of(1,2,3,4,5,6,7,8,9,0).
+
+gather(Gatherers.scan(() ->"",(string,number)->string +number)).
+
+toList(); // will contain: ["1", "12", "123", "1234", "12345", "123456", "1234567", "12345678", "123456789"]
+```
+
+`Gatherers.scan()` is a predefined gatherer, but it is also possible to define your own gatherers. I expect, though,
+that the built-in ones are usually sufficient, and you will rarely need to write your own.
+
+Stream gatherers are a good idea, but unfortunately the implementation lacks the ease of use of similar Kotlin
+constructs.
+
 ## Module Import Declarations
 
 [JEP511](https://openjdk.java.net/jeps/511) was first introduced in Java 22, as a preview feature, and finalized in
