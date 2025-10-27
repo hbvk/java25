@@ -20,7 +20,7 @@ steps:
     jdkSourceOption: LocalDirectory
     jdkFile: '$(build.sourcesdirectory)/jdk-25_linux-x64_bin.tar.gz'
     jdkDestinationDirectory: '$(agent.toolsDirectory)/jdk25'
-- task: Maven@3
+- task: Maven@4
   displayName: 'Build project'
   inputs:
     mavenPomFile: 'pom.xml'
