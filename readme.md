@@ -19,6 +19,24 @@
 | [512](https://openjdk.java.net/jeps/512) | Compact Source Files and Instance Main Methods | 25         | [example](src/main/java/com/hbvk/App.java)                                                                                                                   |
 | [513](https://openjdk.java.net/jeps/513) | Flexible Constructor Bodies                    | 25         | [example](src/main/java/com/hbvk/jep513/FlexibleConstructorBodies.java), [test case](src/test/java/com/hbvk/jep513/Jep513FlexibleConstructorBodiesTest.java) |
 
+## Module Import Declarations
+
+[JEP511](https://openjdk.java.net/jeps/511) was first introduced in Java 22, as a preview feature, and finalized in
+Java 25. It allows for the import of a whole module in one statement, e.g.:
+
+```java
+import module java.sql;
+```
+
+This has the same effect as
+
+```java
+import java.sql.*;
+import javax.sql.*;
+```
+
+This is not a feature I'm planning to use often, I prefer smaller, more fine-grained imports.
+
 ## Compact Source Files and Instance Main Methods
 
 [JEP512](https://openjdk.java.net/jeps/512) was first introduced in Java 21, as a preview feature, and finalized in
@@ -69,3 +87,6 @@ In the body of a constructor, you can now have statements before `this()` or `su
 validations. These statements cannot reference the object under construction, of course. We can now replace the somewhat
 convoluted `super(validate(x));` constructs by the more readable `validate(x); super(x);`. A useful addition, in my
 opinion.
+
+Both enhancements can be useful for small quick-and-dirty programs, but I don't see any use for them in larger
+codebases.
