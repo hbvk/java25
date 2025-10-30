@@ -53,9 +53,9 @@ the [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java) 
 
 ## Markdown Documentation Comments
 
-You can now use Markdown for your Javadoc comments, instead of the somewhat strange mixture of HTML and specific @
-Javadoc tags. Markdown is a popular markup language that most of us already use (e.g. the readme.md start page in most
-Java projects).
+Since Java 23 you can use Markdown for your Javadoc comments, instead of the somewhat strange mixture of HTML and
+specific @ Javadoc tags ([JEP467](https://openjdk.java.net/jeps/467)). Markdown is a popular markup language that most
+of us already use (e.g. the readme.md start page in most Java projects).
 
 Using HTML made sense when Javadoc was introduced some 30 years ago, but not anymore. Replacing HTML with Markdown makes
 a lot of sense, in my opinion.
