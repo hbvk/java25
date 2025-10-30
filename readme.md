@@ -9,15 +9,47 @@
 | JEP                                      | Feature                                        | introduced | test                                                                                                                                                         |
 |------------------------------------------|------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [454](https://openjdk.java.net/jeps/454) | Foreign Function & Memory API                  | 22         |                                                                                                                                                              |
-| [456](https://openjdk.java.net/jeps/456) | Unnamed Variables & Patterns                   | 22         |                                                                                                                                                              |
+| [456](https://openjdk.java.net/jeps/456) | Unnamed Variables & Patterns                   | 22         | [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java)                                                                                  |
 | [458](https://openjdk.java.net/jeps/458) | Launch Multi-File Source-Code Programs         | 22         |                                                                                                                                                              |
 | [467](https://openjdk.java.net/jeps/467) | Markdown Documentation Comments                | 23         |                                                                                                                                                              |
 | [484](https://openjdk.java.net/jeps/484) | Class-File API                                 | 24         |                                                                                                                                                              |
-| [485](https://openjdk.java.net/jeps/485) | Stream Gatherers                               | 24         | [example](src/main/java/com/hbvk/jep485/DistinctByGatherer.java), [test](src/test/java/com/hbvk/jep485/Jep485GathererTest.java)                              |
+| [485](https://openjdk.java.net/jeps/485) | Stream Gatherers                               | 24         | [example](src/main/java/com/hbvk/jep485/DistinctByGatherer.java), [test case](src/test/java/com/hbvk/jep485/Jep485GathererTest.java)                         |
 | [506](https://openjdk.java.net/jeps/506) | Scoped Values                                  | 25         |                                                                                                                                                              |
 | [511](https://openjdk.java.net/jeps/511) | Module Import Declarations                     | 25         |                                                                                                                                                              |
 | [512](https://openjdk.java.net/jeps/512) | Compact Source Files and Instance Main Methods | 25         | [example](src/main/java/com/hbvk/App.java)                                                                                                                   |
 | [513](https://openjdk.java.net/jeps/513) | Flexible Constructor Bodies                    | 25         | [example](src/main/java/com/hbvk/jep513/FlexibleConstructorBodies.java), [test case](src/test/java/com/hbvk/jep513/Jep513FlexibleConstructorBodiesTest.java) |
+
+## Unnamed Variables & Patterns
+
+Previewed in Java 21, and finalized in Java 22, Unnamed Variables &
+Patterns ([JEP456](https://openjdk.java.net/jeps/456)) are long overdue, I can't wait to replace some unnecessary
+`ignored` variables in my projects. A method like this:
+
+```java
+int count(Iterable<MyObject> objects) {
+    int total = 0;
+    for (var object : objects) {
+        // object is not used
+        total++;
+    }
+    return total;
+}
+```
+
+can now be written without reference to the unused as:
+
+```java
+int count(Iterable<MyObject> objects) {
+    int total = 0;
+    for (var _ : objects) {
+        total++;
+    }
+    return total;
+}
+```
+
+Other examples are lambdas, catch clauses, switches, try-with-resources and more. See
+the [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java) for a few more examples.
 
 ## Stream Gatherers
 
