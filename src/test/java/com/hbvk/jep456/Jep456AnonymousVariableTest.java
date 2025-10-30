@@ -10,8 +10,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/// A few examples of unnamed (or anonymous) variables, a long overdue enhancement in Java 22.
 class Jep456AnonymousVariableTest {
 
+    /// An unnamed loop variable.
     @Test
     void loopVariable() {
         int total = 0;
@@ -21,6 +23,7 @@ class Jep456AnonymousVariableTest {
         assertEquals(5, total);
     }
 
+    /// `catch` clause with an unnamed exception variable
     @Test
     void exception() {
         try {
@@ -31,6 +34,7 @@ class Jep456AnonymousVariableTest {
         }
     }
 
+    /// Example of an anonymous `switch` pattern.
     @Test
     void switchPatternVariables() {
         Object o = this;
@@ -45,6 +49,9 @@ class Jep456AnonymousVariableTest {
         }
     }
 
+    /// try-with-resources with an anonymous resource.
+    ///
+    /// @throws IOException because we do file I/O
     @Test
     void tryWithResources() throws IOException {
         FileReader fileReader = new FileReader("./pom.xml");
@@ -53,6 +60,7 @@ class Jep456AnonymousVariableTest {
         }
     }
 
+    /// Example of an unnamed lambda variable.
     @Test
     void lambdaParameter() {
         Map<String, String> map = new HashMap<>();

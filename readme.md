@@ -11,7 +11,7 @@
 | [454](https://openjdk.java.net/jeps/454) | Foreign Function & Memory API                  | 22         |                                                                                                                                                              |
 | [456](https://openjdk.java.net/jeps/456) | Unnamed Variables & Patterns                   | 22         | [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java)                                                                                  |
 | [458](https://openjdk.java.net/jeps/458) | Launch Multi-File Source-Code Programs         | 22         |                                                                                                                                                              |
-| [467](https://openjdk.java.net/jeps/467) | Markdown Documentation Comments                | 23         |                                                                                                                                                              |
+| [467](https://openjdk.java.net/jeps/467) | Markdown Documentation Comments                | 23         | examples scattered throughout this project                                                                                                                   |
 | [484](https://openjdk.java.net/jeps/484) | Class-File API                                 | 24         |                                                                                                                                                              |
 | [485](https://openjdk.java.net/jeps/485) | Stream Gatherers                               | 24         | [example](src/main/java/com/hbvk/jep485/DistinctByGatherer.java), [test case](src/test/java/com/hbvk/jep485/Jep485GathererTest.java)                         |
 | [506](https://openjdk.java.net/jeps/506) | Scoped Values                                  | 25         |                                                                                                                                                              |
@@ -50,6 +50,15 @@ int count(Iterable<MyObject> objects) {
 
 Other examples are lambdas, catch clauses, switches, try-with-resources and more. See
 the [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java) for a few more examples.
+
+## Markdown Documentation Comments
+
+You can now use Markdown for your Javadoc comments, instead of the somewhat strange mixture of HTML and specific @
+Javadoc tags. Markdown is a popular markup language that most of us already use (e.g. the readme.md start page in most
+Java projects).
+
+Using HTML made sense when Javadoc was introduced some 30 years ago, but not anymore. Replacing HTML with Markdown makes
+a lot of sense, in my opinion.
 
 ## Stream Gatherers
 

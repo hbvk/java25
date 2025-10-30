@@ -3,6 +3,8 @@ package com.hbvk.jep485;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Supplier;
 import java.util.stream.Gatherers;
 import java.util.stream.Stream;
 
@@ -12,9 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /// Tests for [JEP 485](https://openjdk.org/jeps/485): Stream Gatherers.
 class Jep485GathererTest {
 
+    /// Example from the javadoc of <code>java.util.stream.Gatherers.scan()</code>.
+    ///
+    /// @see java.util.stream.Gatherers#scan(Supplier, BiFunction)
     @Test
     void testScanPredefinedGatherer() {
-        // example from javadoc in Gatherers
         List<String> numberStrings = Stream
                 .of(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
                 .gather(Gatherers.scan(() -> "", (string, number) -> string + number))
