@@ -67,11 +67,10 @@ finalized in Java 24. Stream gatherers are an extension point for intermediate o
 constructs like:
 
 ```java
-Stream.of(1,2,3,4,5,6,7,8,9,0).
-
-gather(Gatherers.scan(() ->"",(string,number)->string +number)).
-
-toList(); // will contain: ["1", "12", "123", "1234", "12345", "123456", "1234567", "12345678", "123456789"]
+Stream
+    .of(1,2,3,4,5,6,7,8,9,0)
+    .gather(Gatherers.scan(() ->"",(string,number)->string +number))
+    .toList(); // will contain: ["1", "12", "123", "1234", "12345", "123456", "1234567", "12345678", "123456789"]
 ```
 
 `Gatherers.scan()` is a predefined gatherer, but it is also possible to define your own gatherers. I expect, though,
