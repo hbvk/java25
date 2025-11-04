@@ -1,4 +1,4 @@
-package com.hbvk.jep513;
+package com.hbvk.java25.jep513;
 
 public class BaseClass {
     int count;

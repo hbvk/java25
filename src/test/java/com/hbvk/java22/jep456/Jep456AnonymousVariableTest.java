@@ -1,4 +1,4 @@
-package com.hbvk.jep456;
+package com.hbvk.java22.jep456;
 
 import org.junit.jupiter.api.Test;
 

@@ -6,18 +6,26 @@
 
 # New Features
 
-| JEP                                      | Feature                                        | introduced | test                                                                                                                                                         |
-|------------------------------------------|------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [454](https://openjdk.java.net/jeps/454) | Foreign Function & Memory API                  | 22         |                                                                                                                                                              |
-| [456](https://openjdk.java.net/jeps/456) | Unnamed Variables & Patterns                   | 22         | [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java)                                                                                  |
-| [458](https://openjdk.java.net/jeps/458) | Launch Multi-File Source-Code Programs         | 22         |                                                                                                                                                              |
-| [467](https://openjdk.java.net/jeps/467) | Markdown Documentation Comments                | 23         | examples scattered throughout this project                                                                                                                   |
-| [484](https://openjdk.java.net/jeps/484) | Class-File API                                 | 24         |                                                                                                                                                              |
-| [485](https://openjdk.java.net/jeps/485) | Stream Gatherers                               | 24         | [example](src/main/java/com/hbvk/jep485/DistinctByGatherer.java), [test case](src/test/java/com/hbvk/jep485/Jep485GathererTest.java)                         |
-| [506](https://openjdk.java.net/jeps/506) | Scoped Values                                  | 25         |                                                                                                                                                              |
-| [511](https://openjdk.java.net/jeps/511) | Module Import Declarations                     | 25         |                                                                                                                                                              |
-| [512](https://openjdk.java.net/jeps/512) | Compact Source Files and Instance Main Methods | 25         | [example](src/main/java/com/hbvk/App.java)                                                                                                                   |
-| [513](https://openjdk.java.net/jeps/513) | Flexible Constructor Bodies                    | 25         | [example](src/main/java/com/hbvk/jep513/FlexibleConstructorBodies.java), [test case](src/test/java/com/hbvk/jep513/Jep513FlexibleConstructorBodiesTest.java) |
+| JEP                                      | Feature                                        | introduced | test                                                                                                                                                                       |
+|------------------------------------------|------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [454](https://openjdk.java.net/jeps/454) | Foreign Function & Memory API                  | 22         | [test case](src/test/java/com/hbvk/java22/jep454/Jep454ForeignFunctionsTest.java)                                                                                          |
+| [456](https://openjdk.java.net/jeps/456) | Unnamed Variables & Patterns                   | 22         | [test case](src/test/java/com/hbvk/java22/jep456/Jep456AnonymousVariableTest.java)                                                                                         |
+| [458](https://openjdk.java.net/jeps/458) | Launch Multi-File Source-Code Programs         | 22         |                                                                                                                                                                            |
+| [467](https://openjdk.java.net/jeps/467) | Markdown Documentation Comments                | 23         | examples scattered throughout this project                                                                                                                                 |
+| [484](https://openjdk.java.net/jeps/484) | Class-File API                                 | 24         |                                                                                                                                                                            |
+| [485](https://openjdk.java.net/jeps/485) | Stream Gatherers                               | 24         | [example](src/main/java/com/hbvk/java24/jep485/DistinctByGatherer.java), [test case](src/test/java/com/hbvk/java24/jep485/Jep485GathererTest.java)                         |
+| [506](https://openjdk.java.net/jeps/506) | Scoped Values                                  | 25         |                                                                                                                                                                            |
+| [511](https://openjdk.java.net/jeps/511) | Module Import Declarations                     | 25         |                                                                                                                                                                            |
+| [512](https://openjdk.java.net/jeps/512) | Compact Source Files and Instance Main Methods | 25         | [example](src/main/java/com/hbvk/App.java)                                                                                                                                 |
+| [513](https://openjdk.java.net/jeps/513) | Flexible Constructor Bodies                    | 25         | [example](src/main/java/com/hbvk/java25/jep513/FlexibleConstructorBodies.java), [test case](src/test/java/com/hbvk/java25/jep513/Jep513FlexibleConstructorBodiesTest.java) |
+
+## Foreign Function & Memory API
+Foreign Function & Memory API ([JEP454](https://openjdk.java.net/jeps/454)) were introduced in Java 22 (previewed since Java 19).
+
+I found it hard to create a test for foreign functions that worked both on my local Windows setup and in my Azure
+pipeline Linux build. Foreign functions don't fit very well in Java's _Write once, run anywhere_ philosophy.
+Nevertheless, it's a big improvement over JNI. And probably useful in several use cases (e.g. if you use Java on your
+Raspberry Pi), but not so much for backend development.
 
 ## Unnamed Variables & Patterns
 
@@ -49,7 +57,7 @@ int count(Iterable<MyObject> objects) {
 ```
 
 Other examples are lambdas, catch clauses, switches, try-with-resources and more. See
-the [test case](src/test/java/com/hbvk/jep456/Jep456AnonymousVariableTest.java) for a few more examples.
+the [test case](src/test/java/com/hbvk/java22/jep456/Jep456AnonymousVariableTest.java) for a few more examples.
 
 ## Markdown Documentation Comments
 
@@ -138,6 +146,9 @@ This feature introduces two enhancements:
   unnamed package, extends java.lang.Object, does not implement any interfaces, has a default constructor with no
   parameters, and no other constructors. It *must* have a launchable main method.
 
+Both enhancements can be useful for small quick-and-dirty programs, but I don't see any use for them in larger
+codebases.
+
 ## Flexible Constructor Bodies
 
 Flexible constructor bodies ([JEP513](https://openjdk.java.net/jeps/513)) were first introduced as a preview feature in
@@ -147,6 +158,3 @@ In the body of a constructor, you can now have statements before `this()` or `su
 validations. These statements cannot reference the object under construction, of course. We can now replace the somewhat
 convoluted `super(validate(x));` constructs by the more readable `validate(x); super(x);`. A useful addition, in my
 opinion.
-
-Both enhancements can be useful for small quick-and-dirty programs, but I don't see any use for them in larger
-codebases.

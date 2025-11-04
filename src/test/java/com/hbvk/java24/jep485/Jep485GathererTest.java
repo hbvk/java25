@@ -1,4 +1,4 @@
-package com.hbvk.jep485;
+package com.hbvk.java24.jep485;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 import java.util.stream.Gatherers;
 import java.util.stream.Stream;
 
-import static com.hbvk.jep485.DistinctByGatherer.distinctBy;
+import static com.hbvk.java24.jep485.DistinctByGatherer.distinctBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /// Tests for [JEP 485](https://openjdk.org/jeps/485): Stream Gatherers.

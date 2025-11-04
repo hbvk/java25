@@ -1,4 +1,4 @@
-package com.hbvk.jep485;
+package com.hbvk.java24.jep485;
 
 import java.util.ArrayList;
 import java.util.HashMap;
