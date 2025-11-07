@@ -1,10 +1,16 @@
+# About this repo
+
+This repository contains code trying out the new features introduced between Java 21 and Java 25. It is mostly for
+personal use, but if you find it useful feel free to have a look. Be aware that the code is not meant for production
+use.
+
 [![Build Status](https://dev.azure.com/hbvk/java-test/_apis/build/status%2Fhbvk.java25?branchName=main)](https://dev.azure.com/hbvk/java-test/_build/latest?definitionId=44&branchName=main)
 
 | Release | EOL     | Class File Version |
 |---------|---------|--------------------|
 | 2025-09 | 2030-09 | 69.0               |
 
-# New Features
+# Selected new Features in Java 22-25
 
 | JEP                                      | Feature                                        | introduced | test                                                                                                                                                                       |
 |------------------------------------------|------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
